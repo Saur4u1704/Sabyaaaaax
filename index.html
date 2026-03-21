@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sabya Birthday | Heart of Memories</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="stars"></div>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="music/Sabya birthday.m4a" type="audio/mp4">
+</audio>
+
+<!-- PORTAL ENTRANCE -->
+<section id="portal" class="section">
+    <h1 class="display-4 fw-bold">✨ In a world of billions... I found you. ✨</h1>
+    <div class="portal-circle mt-5"></div>
+    <p class="mt-4 fs-5">✨ Click the magical portal to begin ✨</p>
+</section>
+
+<!-- CHAT MEMORIES -->
+<section id="chat" class="section" style="display:none;">
+    <h2 class="mb-4">💬 Year One — Our Beautiful Beginning 💬</h2>
+    <div id="chatArea" class="d-flex flex-column align-items-center w-100"></div>
+</section>
+
+<!-- STORM TO LIFE -->
+<section id="storm" class="section" style="display:none;">
+    <h2>🌧️ Every storm ends... when YOU bring life into the world 🌸</h2>
+    <button class="btn-custom mt-4" id="lifeBtn">🌸 Bring Your Light 🌸</button>
+</section>
+
+<!-- HEART GALLERY -->
+<section id="gallery" class="section" style="display:none;">
+    <h2 class="mb-2">💖 Gorgeous Heart of Us 💖</h2>
+    <p class="mb-3">Every piece of you completes my heart</p>
+    
+    <div class="heart-collage" id="heartCollage">
+        <img src="images/Photo1.png" class="heart-img img1" alt="memory1" onerror="this.src='https://via.placeholder.com/90/ff66cc/ffffff?text=❤️'">
+        <img src="images/Photo2.jpeg" class="heart-img img2" alt="memory2" onerror="this.src='https://via.placeholder.com/90/ff66cc/ffffff?text=❤️'">
+        <img src="images/Photo3.png" class="heart-img img3" alt="memory3" onerror="this.src='https://via.placeholder.com/88/ff66cc/ffffff?text=❤️'">
+        <img src="images/Photo4.png" class="heart-img img4" alt="memory4" onerror="this.src='https://via.placeholder.com/88/ff66cc/ffffff?text=❤️'">
+        <img src="images/Sabya12.jpeg" class="heart-img img5" alt="center memory" onerror="this.src='https://via.placeholder.com/118/ff66cc/ffffff?text=❤️'">
+        <img src="images/Sabya9.jpeg" class="heart-img img6" alt="memory6" onerror="this.src='https://via.placeholder.com/82/ff66cc/ffffff?text=❤️'">
+        <img src="images/Sabya14.png" class="heart-img img7" alt="memory7" onerror="this.src='https://via.placeholder.com/82/ff66cc/ffffff?text=❤️'">
+        <img src="images/Sabya18.png" class="heart-img img8" alt="memory8" onerror="this.src='https://via.placeholder.com/88/ff66cc/ffffff?text=❤️'">
+        <img src="images/Sabya21.png" class="heart-img img9" alt="memory9" onerror="this.src='https://via.placeholder.com/88/ff66cc/ffffff?text=❤️'">
+    </div>
+    
+    <button class="btn-custom mt-5 nextBtn">💎 Continue to Secret Garden 💎</button>
+</section>
+
+<!-- LOCK SECTION -->
+<section id="lock" class="section" style="display:none;">
+    <h2>🔐 Only you can unlock the final magic 🔐</h2>
+    <input type="text" id="secretInput" placeholder="Enter your secret nickname" autocomplete="off">
+    <button class="btn-custom mt-3" id="unlockBtn">✨ Unlock My Heart ✨</button>
+    <p id="error" class="mt-3" style="color:#ff88aa;"></p>
+</section>
+
+<!-- FINAL COUNTDOWN WITH TYPING MESSAGE -->
+<section id="final" class="section" style="display:none;">
+    <h1>🎀 Happiest Birthday to You 🎀</h1>
+    <div id="nameSky" style="display: none;">
+        <div id="typed-output"></div>
+    </div>
+    <div class="counter" id="counter"></div>
+</section>
+
+<!-- CELEBRATION WITH ROMANTIC CAKE & CANDLE BLOWING -->
+<section id="celebration" class="section" style="display:none;">
+    <h1 class="display-4">🎉 Happiest Birthday My Babe 🎉</h1>
+    <h3 class="mt-2">I hope you loved this heart-shaped journey 💖</h3>
+    
+    <div class="romantic-cake-container">
+        <div class="cake-wrapper" id="cakeWrapper">
+            <div class="cake-illustration">
+                <div class="cake-base"></div>
+                <div class="cake-middle"></div>
+                <div class="cake-top"></div>
+                <div class="candle" id="candle">
+                    <div class="candle-flame" id="candleFlame"></div>
+                </div>
+                <div class="cherry">🍒</div>
+                <div class="heart-sprinkle" style="position: absolute; bottom: 150px; left: 30px;">❤️</div>
+                <div class="heart-sprinkle" style="position: absolute; bottom: 165px; right: 35px;">💖</div>
+                <div class="heart-sprinkle" style="position: absolute; bottom: 100px; left: 20px;">✨</div>
+            </div>
+        </div>
+        
+        <div class="wish-message" id="wishMessage">
+            ✨ Make a wish and blow the candle ✨
+        </div>
+        <p class="romantic-text" id="romanticHint">💨 Click on the flame to blow the candle 💨</p>
+    </div>
+    
+    <button class="btn-warning-custom mt-3" id="playLoveMsg">
+        💌 Press for a Special Love Message 💌
+    </button>
+    <p id="loveMsg" style="display:none; margin-top:20px;"></p>
+</section>
+
+<!-- Custom JavaScript -->
+<script src="js/script.js"></script>
+</body>
+</html>
